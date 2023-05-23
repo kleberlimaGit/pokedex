@@ -1,53 +1,34 @@
-<div class="grid">
-  <div class="col-6">
-    <div class="p-3 border-round-sm bg-white grid">
-      <div class="col-6 text-cyan-900">
-        <h2>Bulbasaur</h2>
-          <p class="w-3  bg-yellow-500 px-4 border-round font-bold">Grass</p>
-          <p class="w-3  bg-yellow-500 px-4 border-round font-bold">Poison</p>
+<poke-search (emitSearch)="getSearch($event)"></poke-search>
+<div class="grid mt-2">
+  <div class="col-12 lg:col-6" *ngFor="let pokemon of getAllPokemons" [ngClass]="{'lg:col-12':getAllPokemons.length == 1}">
+    <a
+      class="p-3 border-round-sm no-underline cursor-pointer bg-white font-bold text-cyan-900 flex justify-content-between align-items-center h-8rem"
+      *ngIf="pokemon.status"
+      [routerLink]="['details', pokemon.status.id]"
+    >
+      <div class="flex-1">
+        <h2 class="capitalize">{{ pokemon.name }}</h2>
+        <p
+          class="w-3 bg-yellow-500 px-4 border-round font-bold text-center capitalize"
+          *ngFor="let value of pokemon.status.types"
+        >
+          {{ value.type.name }}
+        </p>
       </div>
-      <div
-        class="col-6 flex align-items-center justify-content-center bg-icons"
-      >
-        <img src="/assets/pokemon.svg" alt="bulbasaur" />
-      </div>
-    </div>
-  </div>
 
-  <div class="col-6">
-    <div class="p-3 border-round-sm bg-white grid">
-      <div class="col-6 text-cyan-900">
-        <h2>Bulbasaur</h2>
-          <p class="w-3  bg-yellow-500 px-4 border-round font-bold">Grass</p>
-          <p class="w-3  bg-yellow-500 px-4 border-round font-bold">Poison</p>
-      </div>
-      <div
-        class="col-6 flex align-items-center justify-content-center bg-icons"
-      >
-        <img src="/assets/pokemon.svg" alt="bulbasaur" />
-      </div>
-    </div>
+      <img
+        [src]="pokemon.status.sprites.other.dream_world.front_default"
+        [alt]="pokemon.name"
+        class="mr-5 w-2"
+      />
+    </a>
+  </div>
+  <div class="card flex justify-content-center align-items-center mx-auto mt-2 col-12">
+    <p-paginator
+      (onPageChange)="onPageChange($event)"
+      [first]="offset"
+      [rows]="limit"
+      [totalRecords]="totalPokemonsRecord"
+    ></p-paginator>
   </div>
 </div>
-
-<!-- <div class="bg-white col-6 mb-5 border-round grid">
-    <div class="col-6 text-cyan-900">
-        <h2>Bulbasaur</h2>
-        <p class="w-3 bg-yellow-500 px-4 border-round font-bold">Grass</p>
-        <p class="w-3 bg-yellow-500 px-4 border-round font-bold">Poison</p>
-    </div>
-    <div class="col-6 flex align-items-center justify-content-center bg-icons">
-        <img src="/assets/pokemon.svg" alt="bulbasaur">
-    </div>
-</div>
-
-<div class="bg-white col-6 mb-5 border-round grid">
-    <div class="col-6 text-cyan-900">
-        <h2>Bulbasaur</h2>
-        <p>Grass</p>
-        <p>Poison</p>
-    </div>
-    <div class="col-6 flex align-items-center justify-content-center">
-        <img src="/assets/pokemon.svg" alt="bulbasaur">
-    </div>
-</div> -->

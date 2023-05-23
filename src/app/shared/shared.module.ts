@@ -5,6 +5,8 @@ import { PokeSearchComponent } from './poke-search/poke-search.component';
 import { PokeListComponent } from './poke-list/poke-list.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
+import { PaginatorModule } from 'primeng/paginator';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -23,7 +25,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     InputTextModule,
-    FormsModule
+    FormsModule,
+    PaginatorModule,
+    RouterModule
   ]
 })
 export class SharedModule { }

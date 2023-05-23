@@ -2,6 +2,7 @@
 @import 'primeflex/primeflex.scss';
 @import "primeicons/primeicons.css";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap');
 
 :root {
     --text-color:#495057;
@@ -166,4 +167,30 @@ body {
     color: var(--gray-100);
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+}
+
+.p-link {
+    color: white;
+
+    &.p-disabled{
+        opacity: 0.4;
+    }
+}
+
+.p-paginator-page{
+    background-image: url("/assets/logo.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    color: black;
+    font-weight: 900;
+    font-family: 'Roboto Slab', serif;
+}
+
+.p-highlight{
+    color:#14fff7;
 }

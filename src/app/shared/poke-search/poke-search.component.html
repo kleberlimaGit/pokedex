@@ -1,4 +1,14 @@
-<div class="col-12 mt-4 flex align-items-center justify-content-center bg-primary px-0 border-round">
-    <input type="text" name="" id="" class="col-11 px-0 border-none bg-primary outline-none ">
-    <i class="pi pi-search text-lg"></i>
-</div>
+<section
+  class="col-12 mt-4 flex align-items-center justify-content-center bg-primary px-0 border-round"
+>
+  <input
+    type="text"
+    name=""
+    id=""
+    class="col-11 px-0 border-none bg-primary outline-none placeholder-text"
+    placeholder="Pesquise um Pokemon"
+    [(ngModel)] = "searchPokemon"
+    (keyup.enter)="search($event)"
+  />
+  <i class="pi pi-search text-lg"></i>
+</section>
