@@ -1,7 +1,8 @@
+
 @import "primeng/resources/primeng.css";
 @import 'primeflex/primeflex.scss';
 @import "primeicons/primeicons.css";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap');
 
 :root {
@@ -162,6 +163,10 @@
 }
     
 
+*{
+    box-sizing: border-box;
+}
+
 body {
     background-color: var(--surface-900);
     color: var(--gray-100);
@@ -194,3 +199,4 @@ body {
 .p-highlight{
     color:#14fff7;
 }
+

@@ -7,6 +7,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { PaginatorModule } from 'primeng/paginator';
 import { RouterModule } from '@angular/router';
+import { ContentListLoaderComponent } from './content-list-loader/content-list-loader.component';
+import { ContentLoaderComponent } from './content-loader/content-loader.component';
+ import { ContentLoaderModule } from '@ngneat/content-loader';
 
 
 
@@ -15,7 +18,9 @@ import { RouterModule } from '@angular/router';
   declarations: [
     PokeHeaderComponent,
     PokeSearchComponent,
-    PokeListComponent, 
+    PokeListComponent,
+    ContentListLoaderComponent,
+    ContentLoaderComponent, 
   ],
   exports: [
     PokeHeaderComponent,
@@ -27,7 +32,8 @@ import { RouterModule } from '@angular/router';
     InputTextModule,
     FormsModule,
     PaginatorModule,
-    RouterModule
+    RouterModule,
+    ContentLoaderModule
   ]
 })
 export class SharedModule { }

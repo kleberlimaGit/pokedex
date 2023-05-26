@@ -11,7 +11,7 @@ export class PokeapiService {
 
   public apiListAllPokemons(pokemon:string, offset?:number, limit?:number): Observable<any> {
     if(pokemon.length == 0){
-      return this.http.get<any>(this.url+"?offset=0&limit=6").pipe(
+      return this.http.get<any>(this.url+`?offset=${offset}&limit=${limit}`).pipe(
         tap((res) => res),
         tap((res) => {
           console.log(res)

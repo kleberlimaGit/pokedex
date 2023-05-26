@@ -1,1 +1,20 @@
-<p>details works!</p>
+<main class="bg-white m-auto details-container mt-8">
+   <section class="section-pokemon-name">
+        <h2 class="pb-0 mb-0 text-right mt-0 text-gray-700">{{pokemon[1].names[0].name}}</h2>
+        <h3 class="pt-0 -mt-2 text-white capitalize">{{pokemon[0].name}}</h3>
+   </section>
+   <img [src]="pokemon[0].sprites.other.dream_world.front_default" [alt]="pokemon[0].name" class="pokemon-image w-6rem">
+   <section class="atributes">
+    <h3 class="mt-7 underline text-pink-600">Estatísticas</h3>
+    <article>
+        <ul class="px-0">
+            <li class="flex align-items-center justify-content-between pb-1" *ngFor="let value of pokemon[0].stats">{{value.stat.name}}
+                <strong>{{value.base_stat}}</strong>
+            </li>
+        </ul>
+    </article>
+    <a [routerLink]="['']" class="py-2 text-center text-white bg-pink-600 block btn no-underline">Voltar</a>
+   </section>
+</main>
+
+
