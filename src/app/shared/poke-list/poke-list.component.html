@@ -4,10 +4,11 @@
 </div>
 <ng-template #notError>
   <div class="grid mt-2">
-    <div class="col-12 lg:col-6" *ngFor="let pokemon of getAllPokemons" [ngClass]="{'lg:col-12':getAllPokemons.length == 1}">
+    <div class="col-12 lg:col-6" *ngFor="let number of totalLoadingPokemonsPerPage ">
       <content-list-loader *ngIf="isLoading; else showPokemons"></content-list-loader>
-  
-      <ng-template #showPokemons>
+    </div>
+    <ng-template #showPokemons>
+    <div class="col-12 lg:col-6" *ngFor="let pokemon of getAllPokemons" [ngClass]="{'lg:col-12':getAllPokemons.length == 1}">
         <a
         class="p-3 border-round-sm no-underline cursor-pointer bg-white font-bold text-cyan-900 flex justify-content-between align-items-center h-8rem"
         *ngIf="pokemon.status"
@@ -29,8 +30,8 @@
           class="mr-5 w-2"
         />
       </a>
-      </ng-template>
     </div>
+  </ng-template>
     
     <div class="card flex justify-content-center align-items-center mx-auto mt-2 col-12" *ngIf="getAllPokemons.length">
       <p-paginator

@@ -9,26 +9,29 @@ import { throwError } from 'rxjs';
   styleUrls: ['./poke-list.component.scss'],
 })
 export class PokeListComponent implements OnInit {
+
   public getAllPokemons: any;
-
   public offset: number = 0;
-
   public limit: number = 6;
-
   public isLoading:boolean = false
-
   public totalPokemonsRecord:any = 0;
-
   public isError = false
-
+  public totalLoadingPokemonsPerPage: number[] = []
   constructor(private pokeApi: PokeapiService) {}
 
   ngOnInit(): void {
     this.isLoading = true
-    this.pokeApi.apiListAllPokemons("", this.offset, this.limit).subscribe((res) => {
-      this.getAllPokemons = res.results;
-     this.totalPokemonsRecord = res.count
-     this.isLoading = false
+    this.isError = false
+    this.totalLoadingPokemonsPerPage = Array(6).map((x,i)=>i);
+    this.pokeApi.apiListAllPokemons("", this.offset, this.limit).subscribe({
+      next: (res) => {
+        this.getAllPokemons = res.results;
+        this.totalPokemonsRecord = res.count
+        this.isLoading = false
+      },
+      error: (err) => {
+        this.isError = true
+      }
     });
   }
 
@@ -37,6 +40,7 @@ public getSearch(event: any) {
   this.getAllPokemons = [];
   const nomePokemon: string = event.trim().length > 0 ? `/${event}` : "";
   this.isLoading = true
+  this.isError = false
     this.pokeApi.apiListAllPokemons(nomePokemon.toLowerCase(), this.offset, this.limit)
       .subscribe({
         next: (res) => {
